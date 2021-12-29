@@ -26,7 +26,7 @@ class Space:
         # Initialize window and screen display
         self.screen = pygame.display.set_mode((self.screen_width, 
         self.screen_height))
-        pygame.display.set_caption("Space program for exercise 13-1")
+        pygame.display.set_caption("Space program for exercise 13-2")
 
         # Create a group of stars (objects)
         self.stars = pygame.sprite.Group()

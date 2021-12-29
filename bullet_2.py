@@ -10,7 +10,7 @@ class Bullet(Sprite):
         self.color = (255, 0, 0)
 
         # Create a bullet rect and set initial position.
-        self.rect = pygame.Rect(0, 0, 15, 3)
+        self.rect = pygame.Rect(0, 0, 15, 4)
         self.rect.midright = game.rocket.rect.midright
 
     def update(self):

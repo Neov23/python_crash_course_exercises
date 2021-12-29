@@ -18,12 +18,15 @@ class Rocket:
         self.moving_up = False
         self.moving_down = False
 
+        self.y = float(self.rect.y)
+
     def update(self):
         """Update the rocket's position based on the movement flags."""
         if self.moving_up and self.rect.top > 0:
-            self.rect.y -= 1
+            self.y -= 0.7
         if self.moving_down and self.rect.bottom < self.screen_rect.bottom:
-            self.rect.y += 1
+            self.y += 0.7
+        self.rect.y = self.y
     
     def blitme(self):
         """Draw the rocket at its current location"""
