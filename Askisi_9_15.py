@@ -22,8 +22,6 @@ def check_ticket(ticket_1, ticket_2):
     for character in ticket_1:
         if character not in ticket_2:
             return False
-        else:
-            continue
     return True
 
 winning_characters = []
@@ -32,16 +30,13 @@ ticket_number = 0
 
 # Loop that ends only when my ticket wins
 while True:
-    # Create winning ticket and my ticket
     winning_characters = create_ticket()
     my_ticket = create_ticket()
     ticket_number += 1
 
-    # If my ticket is the winning ticket, break loop, else repeat loop
+    # If my ticket is the winning ticket, break loop
     if check_ticket(winning_characters, my_ticket):
         break
-    else:
-        continue
         
 # Display how many tickets i have created
 print(f"I finally won, after {ticket_number} tries. \n")
