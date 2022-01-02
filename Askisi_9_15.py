@@ -1,74 +1,56 @@
-# Άσκηση 9-15  (ΔΕΝ ΤΗΝ ΚΑΤΑΦΕΡΑ!)
-# Παρακάτω είναι c/p η λύση του Eric Matthes
-# Τουλάχιστον την διαβάζω και την καταλαβαινω πλήρως
-# Απλώς δεν μου ήρθε η ιδέα να το συντάξω έτσι
-
+# Exercise 9-15
 
 from random import choice
 
-def get_winning_ticket(possibilities):
-    """Return a winning ticket from a set of possibilities."""
-    winning_ticket = []
+# Create list with all characters available to choose
+lottery_characters = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'A', 'B', 'C', 'D', 'E')
 
-    # We don't want to repeat winning numbers or letters, so we'll use a
-    #   while loop.
-    while len(winning_ticket) < 4:
-        pulled_item = choice(possibilities)
-
-        # Only add the pulled item to the winning ticket if it hasn't
-        #   already been pulled.
-        if pulled_item not in winning_ticket:
-            winning_ticket.append(pulled_item)
-
-    return winning_ticket
-
-def check_ticket(played_ticket, winning_ticket):
-    # Check all elements in the played ticket. If any are not in the 
-    #   winning ticket, return False.
-    for element in played_ticket:
-        if element not in winning_ticket:
-            return False
-
-    # We must have a winning ticket!
-    return True
-
-def make_random_ticket(possibilities):
-    """Return a random ticket from a set of possibilities."""
+def create_ticket():
+    """Create a ticket with four random characters of lottery_characters"""
     ticket = []
-    # We don't want to repeat numbers or letters, so we'll use a while loop.
     while len(ticket) < 4:
-        pulled_item = choice(possibilities)
+        character = choice(lottery_characters)
 
-        # Only add the pulled item to the ticket if it hasn't already
-        #   been pulled.
-        if pulled_item not in ticket:
-            ticket.append(pulled_item)
-
+        # Prevent duplication in ticket
+        if character not in ticket:
+            ticket.append(character)
     return ticket
 
+def check_ticket(ticket_1, ticket_2):
+    """Check if all elements of ticket_1 are in ticket_2"""
+    # If all items of ticket_1 are in ticket_2, return True, else return False
+    for character in ticket_1:
+        if character not in ticket_2:
+            return False
+        else:
+            continue
+    return True
 
-possibilities = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'a', 'b', 'c', 'd', 'e']
-winning_ticket = get_winning_ticket(possibilities)
+winning_characters = []
+my_ticket = []
+ticket_number = 0
 
-plays = 0
-won = False
+# Loop that ends only when my ticket wins
+while True:
+    # Create winning ticket and my ticket
+    winning_characters = create_ticket()
+    my_ticket = create_ticket()
+    ticket_number += 1
 
-# Let's set a max number of tries, in case this takes forever!
-max_tries = 1_000_000
-
-while not won:
-    new_ticket = make_random_ticket(possibilities)
-    won = check_ticket(new_ticket, winning_ticket)
-    plays += 1
-    if plays >= max_tries:
+    # If my ticket is the winning ticket, break loop, else repeat loop
+    if check_ticket(winning_characters, my_ticket):
         break
+    else:
+        continue
+        
+# Display how many tickets i have created
+print(f"I finally won, after {ticket_number} tries. \n")
 
-if won:
-    print("We have a winning ticket!")
-    print(f"Your ticket: {new_ticket}")
-    print(f"Winning ticket: {winning_ticket}")
-    print(f"It only took {plays} tries to win!")
-else:
-    print(f"Tried {plays} times, without pulling a winner. :(")
-    print(f"Your ticket: {new_ticket}")
-    print(f"Winning ticket: {winning_ticket}")
+# Display winning ticket
+print("Here are today's winning numbers and/or letters:")
+print(f"{winning_characters[0]}, {winning_characters[1]}, "
+      f"{winning_characters[2]}, {winning_characters[3]}. \n")
+
+# Display my ticket
+print(f"My ticket:")
+print(f"{my_ticket[0]}, {my_ticket[1]}, {my_ticket[2]}, {my_ticket[3]}.")
