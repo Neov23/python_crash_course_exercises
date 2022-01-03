@@ -1,4 +1,0 @@
-In Python you can create lists
-In Python you can create functions
-In Python you can make calculations
-In Python you can import a file into another file
