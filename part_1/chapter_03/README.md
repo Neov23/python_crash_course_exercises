@@ -40,11 +40,8 @@ of three more guests to invite to dinner.
   - Start with your program from Exercise 3-4 or Exercise 3-5. Add a print
 statement to the end of your program informing people that you found a
 bigger dinner table.
-
   - Use insert() to add one new guest to the beginning of your list.
-
   - Use insert() to add one new guest to the middle of your list.
-
   - Use append() to add one new guest to the end of your list. Print a new set
 of invitation messages, one for each person in your list.
 
@@ -54,15 +51,12 @@ dinner, and you have space for only two guests.
 
   - Start with your program from Exercise 3-6. Add a new line that prints a
 message saying that you can invite only two people for dinner.
-
   - Use pop() to remove guests from your list one at a time until only two
 names remain in your list. Each time you pop a name from your list, print
 a message to that person letting them know you’re sorry you can’t invite
 them to dinner.
-
   - Print a message to each of the two people still on your list, letting them
 know they’re still invited.
-
   - Use del to remove the last two names from your list, so you have an empty
 list. Print your list to make sure you actually have an empty list at the
 end of your program.
@@ -72,29 +66,20 @@ Think of at least five places in the world you’d like to visit.
 
   - Store the locations in a list. Make sure the list is not in alphabetical
 order.
-
   - Print your list in its original order. Don’t worry about printing the list
 neatly, just print it as a raw Python list.
-
   - Use sorted() to print your list in alphabetical order without modifying
 the actual list.
-
   - Show that your list is still in its original order by printing it.
-
   - Use sorted() to print your list in reverse alphabetical order without
 changing the order of the original list.
-
   - Show that your list is still in its original order by printing it again.
-
   - Use reverse() to change the order of your list. Print the list to show
 that its order has changed.
-
   - Use reverse() to change the order of your list again. Print the list to
 show it’s back to its original order.
-
   - Use sort() to change your list so it’s stored in alphabetical order. Print
 the list to show that its order has been changed.
-
   - Use sort() to change your list so it’s stored in reverse alphabetical
 order. Print the list to show that its order has changed.
 

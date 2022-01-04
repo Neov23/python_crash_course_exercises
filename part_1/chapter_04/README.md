@@ -3,11 +3,9 @@
 - [Exercise 4-1](exercise_04_01.py):
   - Think of at least three kinds of your favorite pizza. Store these pizza
 names in a list, and then use a for loop to print the name of each pizza.
-
   - Modify your for loop to print a sentence using the name of the pizza
 instead of printing just the name of the pizza. For each pizza you should have
 one line of output containing a simple statement like I like pepperoni pizza.
-
   - Add a line at the end of your program, outside the for loop, that states
 how much you like pizza. The output should consist of three or more lines about
 the kinds of pizza you like and then an additional sentence, such as I really
@@ -17,10 +15,8 @@ love pizza!
   - Think at least three animals that have one common characteristic. Save the
 names of the animals in a list and then use a "for" loop to display the name
 of each animal.
-
   - Edit your program to display a statement for each animal, i.e "A dog would
 make a great pet".
-
   - Add a line at the end of your program, that will state which is the common
 characteristic of these animals, i.e. "Any of these animals would make a great
 pet".
@@ -62,10 +58,8 @@ the end of your program that will do the following:
 
   - Display the message "The first three items in the list are:". Then, use
 slice to display the first three elements of the list.
-
   - Display the message "Three items from the middle of the list are:". Use
 slice to display the three middle elements of the list.
-
   - Display the message "The last three items in the list are:". Use slice to
 display the last three elements of the list.
 
@@ -74,9 +68,7 @@ Start with your program from Exercise 4-1 (page 60). Make a copy of the list
 of pizzas, and call it friend_pizzas. Then, do the following:
 
   - Add a new pizza to the original list.
-
   - Add a different pizza to the list friend_pizzas.
-
   - Prove that you have two separate lists. Print the message, My favorite pizzas
 are:, and then use a for loop to print the first list. Print the message, My
 friend’s favorite pizzas are:, and then use a for loop to print the second
@@ -92,10 +84,8 @@ A buffet-style restaurant offers only five basic foods. Think of five simple
 foods, and store them in a tuple.
 
   - Use a for loop to print each food the restaurant offers.
-
   - Try to modify one of the items, and make sure that Python rejects the
 change.
-
   - The restaurant changes its menu, replacing two of the items with different
 foods. Add a block of code that rewrites the tuple, and then use a for loop
 to print each of the items on the revised menu.
