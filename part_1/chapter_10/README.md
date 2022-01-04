@@ -74,16 +74,16 @@ a friendly message if a file is missing. Move one of the files to a different
 location on your system, and make sure the code in the except block executes
 properly.</br>
 **Modules:**
-  - [cat.txt](exercise_10_08/cat.txt)
-  - [dog.txt](exercise_10_08/dog.txt)
+  - [cat.txt](exercise_10_08/cat.TXT)
+  - [dog.txt](exercise_10_08/dog.TXT)
 </br>
 
 - [Exercise 10-9](exercise_10_09/exercise_10_09.py):
 Modify your except block in Exercise 10-8 to fail silently if either file is
 missing.</br>
 **Modules:**
-  - [cat.txt](exercise_10_08/cat.txt)
-  - [dog.txt](exercise_10_08/dog.txt)
+  - [cat.txt](exercise_10_08/cat.TXT)
+  - [dog.txt](exercise_10_08/dog.TXT)
 </br>
 
 - [Exercise 10-10](exercise_10_10/exercise_10_10.py):
@@ -107,7 +107,7 @@ approximation because it will also count words such as ‘then’ and ‘tehre�
 counting ‘the ‘, with a space in the string, and see how much lower your count
 is.</br>
 **Modules:**
-  - [alexander_the_great.txt](exercise_10_10/alexander_the_great.txt)
+  - [alexander_the_great.txt](exercise_10_10/alexander_the_great.TXT)
 </br>
 
 - [Exercise 10-11](exercise_10_11/README.md):
