@@ -1,14 +1,10 @@
 # Exercise 13-4
-"""
-I recognize it's not perfect, but i found no value in perfecting the code,
-'cause the time i would spend, wouldn't exchange enough experience.
-"""
 
 import sys
 
 import pygame
 
-from pygame.sprite import Sprite
+from raindrop import Raindrop
 
 class Sky:
     """A program that displays the sky with falling raindrops (objects)"""
@@ -25,11 +21,11 @@ class Sky:
         # Initialize window and screen display
         self.screen = pygame.display.set_mode((self.screen_width, 
         self.screen_height))
-        pygame.display.set_caption("Space program for exercise 13-3")
+        pygame.display.set_caption("exercise_13_04")
 
         # Create a group of raindrops (objects)
         self.raindrops = pygame.sprite.Group()
-        self._create_fleet()
+        self.create_fleet()
 
     def run_game(self):
         """Start the main loop for the program"""
@@ -51,7 +47,7 @@ class Sky:
         if event.key == pygame.K_q:
             sys.exit()
     
-    def _create_fleet(self):
+    def create_fleet(self):
         """Create a fleet of raindrops"""
         # Space between each rainbow is equal to at least two raindrop's width
         raindrop = Raindrop(self)
@@ -60,8 +56,8 @@ class Sky:
         number_raindrops_x = int(available_space_x // (2 * raindrop_width))
 
         # Define the number of rows of raindrops that fit on the screen
-        available_space_y = self.screen_height + 2 * raindrop_height
-        number_rows = int(available_space_y // (2 * raindrop_height))
+        available_space_y = self.screen_height
+        number_rows = int(available_space_y // (2 * raindrop_height) + 1)
 
         # Create the full fleet of raindrops
         for row_number in range(number_rows):
@@ -91,35 +87,16 @@ class Sky:
     
     def _update_raindrops(self):
         """
-        Check if the fleet disappeared, to recreate it above the screen,
-        then update the positions of all raindrops in the fleet.
+        Move raindrop downside. If raindrop dissapears, move it above screen
         """
-        self._recreate_raindrop()
         self._drop_raindrop()
+        self._recreate_raindrop()
         
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen"""
         self.screen.fill(self.bg_color)
         self.raindrops.draw(self.screen)
         pygame.display.flip()
-    
-
-class Raindrop(Sprite):
-    """A class to represent a single star"""
-
-    def __init__(self, program):
-        """Initialize the star and set its starting position"""
-        super().__init__()
-        self.screen = program.screen
-        
-        # Load the star image and set its rect attribute
-        self.image = pygame.image.load('raindrop_image.bmp')
-        self.rect = self.image.get_rect()
-
-        # Start each new star near the top of the screen
-        self.rect.x = self.rect.width
-        self.rect.y = self.rect.height
-
 
 if __name__ == '__main__':
     # Make a program instance, and run the game.

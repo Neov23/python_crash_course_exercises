@@ -1,13 +1,10 @@
-"""
-Askisi 13-2 (copy from 13-1), with an addition (adding/removing random
-stars
-"""
+# Exercise 13-2
 
 import sys
 
 import pygame
 
-from pygame.sprite import Sprite
+from star import Star
 
 from random import randint
 
@@ -26,14 +23,11 @@ class Space:
         # Initialize window and screen display
         self.screen = pygame.display.set_mode((self.screen_width, 
         self.screen_height))
-        pygame.display.set_caption("Space program for exercise 13-2")
+        pygame.display.set_caption("exercise_13_02")
 
         # Create a group of stars (objects)
         self.stars = pygame.sprite.Group()
-        self._create_fleet()
-
-        # Create True/False flags that are picked randomly
-        #self.randomizer = randint(0, 1)
+        self.create_fleet()
 
     def run_game(self):
         """Start the main loop for the program"""
@@ -54,7 +48,7 @@ class Space:
         if event.key == pygame.K_q:
             sys.exit()
     
-    def _create_fleet(self):
+    def create_fleet(self):
         """Create a fleet of stars"""
         # Space between each star is equal to half of a star's width
         star = Star(self)
@@ -64,19 +58,19 @@ class Space:
 
         # Define the number of rows of stars that fit on the screen
         available_space_y = self.screen_height - star_height
-        number_rows = int(available_space_y // (1.5 * star_height))
+        number_stars_y = int(available_space_y // (1.5 * star_height))
 
         # Create the full fleet of stars
-        for row_number in range(number_rows):
+        for row_number in range(number_stars_y):
             for star_number in range(number_stars_x):
                 self._create_star(star_number, row_number)
         
-    def _create_star(self, star_number, row_number):
+    def _create_star(self, star_number_x, star_number_y):
         """Create a star and place it in a certain position"""
         star = Star(self)
         star_width, star_height = star.rect.size
-        star.rect.x = star_width + star_number * star_width * 1.5
-        star.rect.y = star_height + row_number * star_height * 1.5
+        star.rect.x = star_width + star_number_x * star_width * 1.5
+        star.rect.y = star_height + star_number_y * star_height * 1.5
 
         # Choose whether to add or not the star in specific coordinate
         randomizer = randint(0, 1)
@@ -88,24 +82,6 @@ class Space:
         self.screen.fill(self.bg_color)
         self.stars.draw(self.screen)
         pygame.display.flip()
-    
-
-class Star(Sprite):
-    """A class to represent a single star"""
-
-    def __init__(self, program):
-        """Initialize the star and set its starting position"""
-        super().__init__()
-        self.screen = program.screen
-        
-        # Load the star image and set its rect attribute
-        self.image = pygame.image.load('star_image.bmp')
-        self.rect = self.image.get_rect()
-
-        # Start each new star near the top of the screen
-        self.rect.x = self.rect.width
-        self.rect.y = self.rect.height
-
 
 if __name__ == '__main__':
     # Make a program instance, and run the game.

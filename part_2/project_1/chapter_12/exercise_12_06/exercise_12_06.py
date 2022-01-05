@@ -25,7 +25,7 @@ class RocketGame:
         while True:
             self.events()
             self.rocket.update()
-            self.update_bullets() 
+            self._update_bullets() 
             self.update_screen()
             print(len(self.bullets))
 
@@ -62,8 +62,8 @@ class RocketGame:
         new_bullet = Bullet(self)
         self.bullets.add(new_bullet)
     
-    def update_bullets(self):
-        # Update bullet position
+    def _update_bullets(self):
+        """Update bullet position."""
         self.bullets.update()
 
         # Get rid of bullets that have disappeared

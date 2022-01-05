@@ -1,24 +1,16 @@
-"""
-I purposefully don't create an extra module, or class with settings, to
-raise the difficulty, caused by complexity. I assume that makes my practice
-more effective, even though i would always try (apart from these exercises)
-to find the easiest way to create a project.
-"""
-
-# TASK_1: Check if bullets are deleting off screen
-# TASK_2: Check if UFO's are deleting off screenq
+# Exercise 13-5
 
 import sys
 
 import pygame
+
 from pygame.sprite import Sprite
 
-from rocket_2 import Rocket
-from bullet_2 import Bullet
-from alien_2 import Alien
+from rocket import Rocket
+from bullet import Bullet
+from alien import Alien
 
 from random import randint
-
 
 class RocketGame:
     """Overall class to manage the game"""
@@ -31,26 +23,27 @@ class RocketGame:
         self.screen_width = 1280
         self.screen_height = 960
         self.bg_color = (0, 0, 0)
-
         self.screen = pygame.display.set_mode((self.screen_width,
         self.screen_height))
-        pygame.display.set_caption("Sideways Rocket Game for exercise 13-5")
+        pygame.display.set_caption("exercise_13_05")
+
         self.rocket = Rocket(self)
         self.bullets = pygame.sprite.Group()
         self.aliens = pygame.sprite.Group()
 
-        self._create_fleet()
+        self.create_fleet()
 
     def run_game(self):
         """Start the main loop of the game."""
         while True:
-            self.events()
+            self._check_events()
             self.rocket.update()
-            self.update_bullets()
+            self._update_bullets()
             self._update_aliens()
+            self._check_bullet_alien_collisions()
             self.update_screen()
 
-    def events(self):
+    def _check_events(self):
         """Respond to keypresses and mouse events."""
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -83,27 +76,25 @@ class RocketGame:
         new_bullet = Bullet(self)
         self.bullets.add(new_bullet)
     
-    def update_bullets(self):
-        # Update bullet position
+    def _update_bullets(self):
+        """Update bullet position."""
         self.bullets.update()
 
         # Get rid of bullets that have disappeared
         for bullet in self.bullets.copy():
             if bullet.rect.left >= self.rocket.screen_rect.right:
                 self.bullets.remove(bullet)
-        self._check_bullet_alien_collisions()
 
     def _check_bullet_alien_collisions(self):
         """Respond to bullet-alien collisions."""
         # Remove any bullets and aliens that have collided.
-        collisions = pygame.sprite.groupcollide(
-            self.bullets, self.aliens, True, True)
+        pygame.sprite.groupcollide(self.bullets, self.aliens, True, True)
 
     def _update_aliens(self):
         """Update alien position"""
         self.aliens.update()
         
-    def _create_fleet(self):
+    def create_fleet(self):
         """Create the fleet of aliens."""
         # Create an alien and find the number of aliens in a row.
         # Spacing between each alien is equal to one alien height.
@@ -132,12 +123,10 @@ class RocketGame:
             number_alien_row)
         alien.x = alien.rect.x
         
-        # Random choice to choose if alien will be created or not.
-        # 75% possibility of spawn rate
+        # Random choice if alien will be created. 75% spawn rate.
         self.choice = randint(0, 3)
         if self.choice != 0:
             self.aliens.add(alien)
-        
 
     def update_screen(self):
         """Update screen each time the loop replays"""
@@ -152,5 +141,5 @@ class RocketGame:
 
 if __name__ == '__main__':
     # Make a game instance and run the game.
-    rg = RocketGame()
-    rg.run_game()
+    main_program = RocketGame()
+    main_program.run_game()
