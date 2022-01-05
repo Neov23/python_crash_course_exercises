@@ -1,3 +1,5 @@
+# Exercise 12-4
+
 import sys
 
 import pygame

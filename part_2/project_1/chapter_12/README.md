@@ -25,8 +25,12 @@ Make a Pygame file that creates an empty screen. In the event loop, print the
 event.key attribute whenever a pygame.KEYDOWN event is detected. Run the
 program and press various keys to see how Pygame responds.
 
-- [Exercise 12-6](exercise_12_06.py):
+- [Exercise 12-6](exercise_12_06/exercise_12_06.py):
 Write a game that places a ship on the left side of the screen and allows the
 player to move the ship up and down. Make the ship fire a bullet that travels
 right across the screen when the player presses the spacebar. Make sure
 bullets are deleted once they disappear off the screen.
+**Modules:**
+  - [rocket.bmp](exercise_12_06/rocket.bmp)
+  - [rocket.py](exercise_12_06/rocket.py)
+  - [bullet.py](exercise_12_06/bullet.py)

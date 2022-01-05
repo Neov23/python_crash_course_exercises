@@ -1,17 +1,11 @@
-"""
-I purposefully don't create an extra module, or class with settings, to
-raise the difficulty, caused by complexity. I assume that makes my practice
-more effective, even though i would always try (apart from these exercises)
-to find the easiest way to create a project.
-"""
+# Exercise 12-6
 
 import sys
 
 import pygame
 
-from rocket_2 import Rocket
-from bullet_2 import Bullet
-
+from rocket import Rocket
+from bullet import Bullet
 
 class RocketGame:
     """Overall class to manage the game"""
@@ -21,7 +15,7 @@ class RocketGame:
         pygame.init()
 
         self.screen = pygame.display.set_mode((1024, 768))
-        pygame.display.set_caption("Sideways Rocket Game for exercise 12-6")
+        pygame.display.set_caption("exercise_12_06")
         self.bg_color = (0, 0, 0)
         self.rocket = Rocket(self)
         self.bullets = pygame.sprite.Group()
@@ -51,10 +45,10 @@ class RocketGame:
             self.rocket.moving_up = True
         elif event.key == pygame.K_DOWN:
             self.rocket.moving_down = True
-        elif event.key == pygame.K_q:
-            sys.exit()
         elif event.key == pygame.K_SPACE:
             self.fire_bullets()
+        elif event.key == pygame.K_q:
+            sys.exit()
         
     def _keyup_events(self, event):
         """Respond to key releases"""
