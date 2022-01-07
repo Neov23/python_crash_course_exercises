@@ -52,7 +52,15 @@ difficulty levels.
   - [settings.py](exercise_14_04/settings.py)
   - [ship.py](exercise_14_04/ship.py)
 
-- [Exercise 14-5](exercise_14_05.py):
+- [Exercise 14-5](exercise_14_05/exercise_14_05.py):
 The high score is reset every time a player closes and restarts Alien Invasion.
 Fix this by writing the high score to a file before calling sys.exit() and
 reading in the high score when initializing its value in GameStats.
+**Modules:**
+  - [alien.py](exercise_14_05/alien.py)
+  - [bullet.py](exercise_14_05/bullet.py)
+  - [button.py](exercise_14_05/button.py)
+  - [game_stats.py](exercise_14_05/game_stats.py)
+  - [scoreboard.py](exercise_14_05/scoreboard.py)
+  - [settings.py](exercise_14_05/settings.py)
+  - [ship.py](exercise_14_05/ship.py)
